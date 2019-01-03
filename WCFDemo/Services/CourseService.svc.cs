@@ -6,7 +6,8 @@ using System.ServiceModel;
 using System.Text;
 
 namespace WCFDemo.Services
-{   
+{
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class CourseService : ICourseService
     {
         public IEnumerable<Courses> GetAll()

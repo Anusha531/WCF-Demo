@@ -15,9 +15,11 @@ namespace WcfWebClient.Controllers
 
         public ActionResult About()
         {
-            var myService = new CourseReference.CourseServiceClient("BasicHttpBinding_ICourseService");
-            var returnValue = myService.GetAll();
+            var myService = new CourseReference.CourseServiceClient("DefaultEndpoint");
+            myService.ClientCredentials.UserName.UserName = "Anusha";
+            myService.ClientCredentials.UserName.Password = "Anusha";
 
+            var returnValue = myService.GetAll();
             ViewBag.Message = returnValue.Count();
 
             return View();
@@ -25,9 +27,11 @@ namespace WcfWebClient.Controllers
 
         public ActionResult Contact()
         {
-            var myService = new CourseReference.CourseServiceClient("BasicHttpBinding_ICourseService");
-            var returnValue = myService.Get(2021);
+            var myService = new CourseReference.CourseServiceClient("DefaultEndpoint");
+            myService.ClientCredentials.UserName.UserName = "Anusha";
+            myService.ClientCredentials.UserName.Password = "Anusha";
 
+            var returnValue = myService.Get(2021);
             ViewBag.Message = returnValue.Title;
 
             return View();
