@@ -27,4 +27,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Update">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFDemo.Services" minOccurs="0" name="item" nillable="true" type="q3:Courses" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFDemo.Services" minOccurs="0" name="UpdateResult" nillable="true" type="q4:Courses" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Add">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCFDemo.Services" minOccurs="0" name="item" nillable="true" type="q5:Courses" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCFDemo.Services" minOccurs="0" name="AddResult" nillable="true" type="q6:Courses" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

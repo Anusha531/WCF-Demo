@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Data.Entity;
 
 namespace WCFDemo.Services
 {
@@ -37,6 +38,47 @@ namespace WCFDemo.Services
 
             return courses;
 
+        }
+
+        public Courses Update(Courses courses)
+        {
+            using (UniversityContext universityContext = new UniversityContext())
+            {
+                var courseInDB = universityContext.Courses.Find(courses.CourseID);
+
+                courseInDB.Credits = courses.Credits;
+                courseInDB.Title = courses.Title;
+
+
+                universityContext.Entry(courseInDB).State = EntityState.Modified;
+                universityContext.SaveChanges();                
+            }
+
+            return courses;
+
+        }
+
+        public Courses Add(Courses courses)
+        {
+            using (UniversityContext universityContext = new UniversityContext())
+            {
+                var courseInDB = universityContext.Courses.Find(courses.CourseID);
+
+                if (courseInDB == null)
+                {
+                    var itemToAdd = new Course();
+                    itemToAdd.Credits = courses.Credits;
+                    itemToAdd.Title = courses.Title;
+                    itemToAdd.DepartmentID = 4;
+
+                    universityContext.Entry(itemToAdd).State = EntityState.Added;
+                    universityContext.SaveChanges();
+
+                    courses.CourseID = itemToAdd.CourseID;
+                }
+            }
+
+            return courses;
         }
     }
 }

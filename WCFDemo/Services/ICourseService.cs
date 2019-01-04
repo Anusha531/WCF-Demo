@@ -16,6 +16,13 @@ namespace WCFDemo.Services
         [OperationContract]
         Courses Get(int CourseID);
 
+        [OperationContract]
+        Courses Update(Courses item);
+
+        [OperationContract]
+        Courses Add(Courses item);
+
+
     }
 
     [DataContract]

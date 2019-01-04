@@ -105,6 +105,18 @@ namespace WcfWebClient.CourseReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICourseService/Get", ReplyAction="http://tempuri.org/ICourseService/GetResponse")]
         System.Threading.Tasks.Task<WcfWebClient.CourseReference.Courses> GetAsync(int CourseID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICourseService/Update", ReplyAction="http://tempuri.org/ICourseService/UpdateResponse")]
+        WcfWebClient.CourseReference.Courses Update(WcfWebClient.CourseReference.Courses item);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICourseService/Update", ReplyAction="http://tempuri.org/ICourseService/UpdateResponse")]
+        System.Threading.Tasks.Task<WcfWebClient.CourseReference.Courses> UpdateAsync(WcfWebClient.CourseReference.Courses item);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICourseService/Add", ReplyAction="http://tempuri.org/ICourseService/AddResponse")]
+        WcfWebClient.CourseReference.Courses Add(WcfWebClient.CourseReference.Courses item);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICourseService/Add", ReplyAction="http://tempuri.org/ICourseService/AddResponse")]
+        System.Threading.Tasks.Task<WcfWebClient.CourseReference.Courses> AddAsync(WcfWebClient.CourseReference.Courses item);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -148,6 +160,22 @@ namespace WcfWebClient.CourseReference {
         
         public System.Threading.Tasks.Task<WcfWebClient.CourseReference.Courses> GetAsync(int CourseID) {
             return base.Channel.GetAsync(CourseID);
+        }
+        
+        public WcfWebClient.CourseReference.Courses Update(WcfWebClient.CourseReference.Courses item) {
+            return base.Channel.Update(item);
+        }
+        
+        public System.Threading.Tasks.Task<WcfWebClient.CourseReference.Courses> UpdateAsync(WcfWebClient.CourseReference.Courses item) {
+            return base.Channel.UpdateAsync(item);
+        }
+        
+        public WcfWebClient.CourseReference.Courses Add(WcfWebClient.CourseReference.Courses item) {
+            return base.Channel.Add(item);
+        }
+        
+        public System.Threading.Tasks.Task<WcfWebClient.CourseReference.Courses> AddAsync(WcfWebClient.CourseReference.Courses item) {
+            return base.Channel.AddAsync(item);
         }
     }
 }
